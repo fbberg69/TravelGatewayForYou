@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Meta tags -->
+    <title>Travel Gateway | Seu Portal de Viagens Premium</title>
+    <meta name="description" content="Descubra destinos extraordinários, planeje sua viagem perfeita e economize com as melhores ofertas. Guias exclusivos, ferramentas de IA e dicas de especialistas.">
+    <meta name="keywords" content="viagem, turismo, destinos internacionais, planejamento de viagem, economia em viagens, cartão para viagem, seguro viagem">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Travel Gateway | Seu Portal de Viagens Premium">
+    <meta property="og:description" content="Descubra destinos extraordinários, planeje sua viagem perfeita e economize com as melhores ofertas. Guias exclusivos, ferramentas de IA e dicas de especialistas.">
+    <meta property="og:image" content="https://seusite.com/imagens/og-travel-gateway.jpg">
+    <meta property="og:url" content="https://seusite.com">
+    <meta property="og:type" content="website">
+    
+    <!-- Schema.org para Rich Snippets -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TravelAgency",
+      "name": "Travel Gateway",
+      "url": "https://travel-gateway.com",
+      "logo": "https://travel-gateway.com/logo.png",
+      "description": "Descubra destinos extraordinários, planeje sua viagem perfeita e economize com as melhores ofertas.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "Brasil"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+55-11-5555-5555",
+        "contactType": "customer service"
+      }
+    }
+    </script>
+    
+    <!-- CSS e JS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <a href="#" class="logo">
+                    <i class="fas fa-globe-americas"></i>
+                    Travel Gateway
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="#destinations">Destinos</a></li>
+                        <li><a href="#features">Recursos</a></li>
+                        <li><a href="#finance">Finanças</a></li>
+                        <li><a href="#insurance">Seguros</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#" class="btn btn-outline">Entrar</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Descubra o Mundo com Inteligência</h1>
+                <p>Planeje viagens perfeitas, economize em cada detalhe e crie memórias inesquecíveis com nosso portal completo para viajantes.</p>
+                <a href="#search" class="btn btn-secondary">Planeje Sua Viagem</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section id="search" class="search-section">
+        <div class="container">
+            <div class="search-container">
+                <form class="search-form">
+                    <div class="form-group">
+                        <label for="destination">Destino</label>
+                        <input type="text" id="destination" placeholder="Para onde deseja ir?">
+                    </div>
+                    <div class="form-group">
+                        <label for="dates">Datas</label>
+                        <input type="text" id="dates" placeholder="Check-in — Check-out">
+                    </div>
+                    <div class="form-group">
+                        <label for="guests">Viajantes</label>
+                        <select id="guests">
+                            <option value="1">1 Adulto</option>
+                            <option value="2" selected>2 Adultos</option>
+                            <option value="3">3 Adultos</option>
+                            <option value="4">4 Adultos</option>
+                            <option value="family">Família</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="search-btn">Buscar</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destinations Section -->
+    <section id="destinations" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Destinos Populares</h2>
+                <p>Explore destinos incríveis para sua próxima aventura</p>
+            </div>
+            
+            <div class="destinations-grid">
+                <!-- Destination Card 1 -->
+                <div class="destination-card">
+                    <div class="destination-img">
+                        <img src="https://source.unsplash.com/800x600/?paris" alt="Paris, França">
+                    </div>
+                    <div class="destination-info">
+                        <h3>Paris, França</h3>
+                        <p>A cidade luz oferece cultura, gastronomia e romance em cada esquina.</p>
+                        <div class="destination-meta">
+                            <div class="price">A partir de R$ 4.500</div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-sm">Ver Pacotes</a>
+                    </div>
+                </div>
+                
+                <!-- Destination Card 2 -->
+                <div class="destination-card">
+                    <div class="destination-img">
+                        <img src="https://source.unsplash.com/800x600/?tokyo" alt="Tóquio, Japão">
+                    </div>
+                    <div class="destination-info">
+                        <h3>Tóquio, Japão</h3>
+                        <p>Tradição milenar encontra tecnologia de ponta na vibrante capital japonesa.</p>
+                        <div class="destination-meta">
+                            <div class="price">A partir de R$ 7.800</div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-sm">Ver Pacotes</a>
+                    </div>
+                </div>
+                
+                <!-- Destination Card 3 -->
+                <div class="destination-card">
+                    <div class="destination-img">
+                        <img src="https://source.unsplash.com/800x600/?newyork" alt="Nova York, EUA">
+                    </div>
+                    <div class="destination-info">
+                        <h3>Nova York, EUA</h3>
+                        <p>A cidade que nunca dorme encanta com sua energia, cultura e diversidade.</p>
+                        <div class="destination-meta">
+                            <div class="price">A partir de R$ 5.600</div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-sm">Ver Pacotes</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center" style="margin-top: 30px; text-align: center;">
+                <a href="#" class="btn btn-outline">Ver Todos os Destinos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="section features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Por Que Escolher Travel Gateway</h2>
+                <p>Descubra os recursos que tornam sua experiência de viagem inigualável</p>
+            </div>
+            
+            <div class="features-grid">
+                <!-- Feature 1 -->
+                <div class="feature-card">
+                    <i class="fas fa-route"></i>
+                    <h3>Roteiros Personalizados</h3>
+                    <p>Crie roteiros personalizados com base em seus interesses, tempo disponível e orçamento.</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="feature-card">
+                    <i class="fas fa-hand-holding-usd"></i>
+                    <h3>Economia Inteligente</h3>
+                    <p>Economize em cada aspecto da sua viagem com nossos comparadores e dicas exclusivas.</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Viagem Segura</h3>
+                    <p>Informações de segurança atualizadas e recomendações de seguros para cada destino.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Finance Section -->
+    <section id="finance" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Finanças para Viajantes</h2>
+                <p>Economize até €500 em taxas na sua próxima viagem internacional</p>
+            </div>
+            
+            <!-- Calculator -->
+            <div id="calculator" class="calculator-section">
+                <div class="calculator-container">
+                    <div class="calculator-form">
+                        <form id="calculator-form">
+                            <div class="form-group">
+                                <label for="travel-budget">Orçamento total da viagem (€)</label>
+                                <input type="number" id="travel-budget" min="500" value="3000">
+                            </div>
+                            <div class="form-group">
+                                <label for="days">Dias de viagem</label>
+                                <input type="number" id="days" min="1" value="14">
+                            </div>
+                            <div class="form-group">
+                                <label for="destinations">Destino principal</label>
+                                <select id="destinations">
+                                    <option value="europa">Europa</option>
+                                    <option value="asia">Ásia</option>
+                                    <option value="america">América do Norte</option>
+                                    <option value="oceania">Oceania</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="currency">Moeda</label>
+                                <select id="currency">
+                                    <option value="€">Euro (€)</option>
+                                    <option value="$">Dólar ($)</option>
+                                    <option value="£">Libra (£)</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn">Calcular Economia</button>
+                        </form>
+                    </div>
+                    
+                    <div id="calculator-results" class="calculator-results">
+                        <h3>Resultados:</h3>
+                        
+                        <div class="result-card">
+                            <h3>Método Tradicional (Banco)</h3>
+                            <p class="cost">Taxas estimadas: <span id="bank-fees">150.00 €</span></p>
+                            <p class="cost">Custo total: <span id="bank-total">3150.00 €</span></p>
+                        </div>
+                        
+                        <div class="result-card highlight">
+                            <h3>Com Cartão de Viagem</h3>
+                            <p class="cost">Taxas estimadas: <span id="card-fees">45.00 €</span></p>
+                            <p class="cost">Custo total: <span id="card-total">3045.00 €</span></p>
+                            <p class="savings">Economia total: <span id="total-savings">105.00 €</span></p>
+                            <a href="#comparison" class="btn btn-sm">Ver Melhores Cartões</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card Comparison -->
+            <div id="comparison" class="comparison-section" style="margin-top: 60px;">
+                <div class="section-title">
+                    <h2>Melhores Cartões para Viajantes</h2>
+                    <p>Compare as opções e escolha a mais adequada para seu perfil</p>
+                </div>
+                
+                <div class="comparison-table-container">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Cartão</th>
+                                <th>Taxa de Câmbio</th>
+                                <th>Anuidade</th>
+                                <th>Benefícios</th>
+                                <th>Ação</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="card-name">
+                                    <i class="fas fa-credit-card" style="color: var(--primary); margin-right: 10px;"></i>
+                                    Wise Multi-moeda
+                                </td>
+                                <td>Câmbio Real + 0.5%</td>
+                                <td>€0</td>
+                                <td>Múltiplas moedas, IBAN europeu</td>
+                                <td><a href="#" class="btn btn-sm">Solicitar</a></td>
+                            </tr>
+                            <tr>
+                                <td class="card-name">
+                                    <i class="fas fa-credit-card" style="color: var(--secondary); margin-right: 10px;"></i>
+                                    Revolut Premium
+                                </td>
+                                <td>Câmbio Real (até €1000/mês)</td>
+                                <td>€7.99/mês</td>
+                                <td>Saques grátis, seguro viagem básico</td>
+                                <td><a href="#" class="btn btn-sm">Solicitar</a></td>
+                            </tr>
+                            <tr>
+                                <td class="card-name">
+                                    <i class="fas fa-credit-card" style="color: var(--dark); margin-right: 10px;"></i>
+                                    N26 You
+                                </td>
+                                <td>Mastercard + 1.5%</td>
+                                <td>€9.90/mês</td>
+                                <td>Seguro médico, seguro bagagem</td>
+                                <td><a href="#" class="btn btn-sm">Solicitar</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Lead Magnet -->
+            <div class="lead-section" style="margin-top: 60px;">
+                <div class="lead-box">
+                    <div class="lead-content">
+                        <h2>Guia Definitivo: Finanças para Viajantes</h2>
+                        <p>Descubra como economizar até €500 em sua próxima viagem internacional com nosso guia exclusivo de 32 páginas.</p>
+                        
+                        <ul class="lead-features">
+                            <li><i class="fas fa-check-circle"></i> Os melhores cartões sem IOF e taxas abusivas</li>
+                            <li><i class="fas fa-check-circle"></i> Como evitar armadilhas de câmbio nos destinos</li>
+                            <li><i class="fas fa-check-circle"></i> Planilha de controle de gastos para viajantes</li>
+                            <li><i class="fas fa-check-circle"></i> Seguro viagem: como escolher e economizar</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="lead-form">
+                        <h3>Receba seu guia gratuito</h3>
+                        <form id="lead-form">
+                            <div class="form-group">
+                                <label for="lead-name">Nome</label>
+                                <input type="text" id="lead-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lead-email">E-mail</label>
+                                <input type="email" id="lead-email" required>
+                            </div>
+                            <button type="submit" class="btn btn-secondary" style="width: 100%;">Quero Economizar</button>
+                            <p class="privacy-note">Seus dados estão seguros. Não compartilhamos com terceiros.</p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Insurance Section -->
+    <section id="insurance" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Seguro Viagem Comparativo</h2>
+                <p>Escolha a melhor proteção para sua próxima aventura</p>
+            </div>
+            
+            <div class="insurance-grid">
+                <!-- Insurance Card 1 -->
+                <div class="insurance-card">
+                    <div class="insurance-badge">Popular</div>
+                    <i class="fas fa-shield-alt" style="font-size: 48px; color: var(--primary); margin-bottom: 20px;"></i>
+                    <h3>Cobertura Essencial</h3>
+                    <p class="price">A partir de €8/dia</p>
+                    <p>Proteção básica com excelente custo-benefício para viajantes econômicos.</p>
+                    
+                    <ul class="insurance-features">
+                        <li><i class="fas fa-check"></i> Despesas médicas até €30.000</li>
+                        <li><i class="fas fa-check"></i> Assistência 24h em português</li>
+                        <li><i class="fas fa-check"></i> Cancelamento de viagem até €1.000</li>
+                        <li><i class="fas fa-times" style="color: var(--danger);"></i> Sem cobertura para esportes</li>
+                    </ul>
+                    
+                    <a href="#" class="btn">Cotar Agora</a>
+                </div>
+                
+                <!-- Insurance Card 2 -->
+                <div class="insurance-card">
+                    <div class="insurance-badge">Recomendado</div>
+                    <i class="fas fa-globe" style="font-size: 48px; color: var(--primary); margin-bottom: 20px;"></i>
+                    <h3>Cobertura Premium</h3>
+                    <p class="price">A partir de €12/dia</p>
+                    <p>Proteção completa com excelentes limites para viagens tranquilas.</p>
+                    
+                    <ul class="insurance-features">
+                        <li><i class="fas fa-check"></i> Despesas médicas até €100.000</li>
+                        <li><i class="fas fa-check"></i> Assistência 24h em português</li>
+                        <li><i class="fas fa-check"></i> Cancelamento de viagem até €3.000</li>
+                        <li><i class="fas fa-check"></i> Cobertura para bagagem extraviada</li>
+                    </ul>
+                    
+                    <a href="#" class="btn">Cotar Agora</a>
+                </div>
+                
+                <!-- Insurance Card 3 -->
+                <div class="insurance-card">
+                    <i class="fas fa-heartbeat" style="font-size: 48px; color: var(--primary); margin-bottom: 20px;"></i>
+                    <h3>Cobertura Completa</h3>
+                    <p class="price">A partir de €15/dia</p>
+                    <p>Proteção máxima incluindo atividades esportivas e condições pré-existentes.</p>
+                    
+                    <ul class="insurance-features">
+                        <li><i class="fas fa-check"></i> Despesas médicas até €500.000</li>
+                        <li><i class="fas fa-check"></i> Assistência 24h em português</li>
+                        <li><i class="fas fa-check"></i> Cancelamento de viagem até €5.000</li>
+                        <li><i class="fas fa-check"></i> Cobertura para esportes e aventura</li>
+                    </ul>
+                    
+                    <a href="#" class="btn">Cotar Agora</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>O Que Nossos Viajantes Dizem</h2>
+                <p>Histórias reais de quem já economizou tempo e dinheiro com nossas ferramentas</p>
+            </div>
+            
+            <div class="testimonial-grid">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Economizei mais de €300 em minha viagem para Europa usando as dicas e comparadores do Travel Gateway. O guia financeiro foi essencial para evitar taxas abusivas."
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Ana Luiza">
+                        <div class="author-info">
+                            <h4>Ana Luiza</h4>
+                            <p>Viagem para França e Itália</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "O seguro viagem recomendado pelo site salvou minha viagem quando precisei de atendimento médico no Japão. Processo simples e rápido, sem burocracia."
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Rafael Mendes">
+                        <div class="author-info">
+                            <h4>Rafael Mendes</h4>
+                            <p>Viagem para Ásia</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Usando os cartões recomendados pelo Travel Gateway, consegui fazer compras no exterior sem me preocupar com IOF ou taxas abusivas. Experiência incrível!"
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Carla Santos">
+                        <div class="author-info">
+                            <h4>Carla Santos</h4>
+                            <p>Viagem para Estados Unidos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="section blog">
+        <div class="container">
+            <div class="section-title">
+                <h2>Dicas e Inspirações</h2>
+                <p>Conteúdo exclusivo para planejar sua próxima aventura</p>
+            </div>
+            
+            <div class="blog-grid">
+                <!-- Blog Card 1 -->
+                <div class="blog-card">
+                    <div class="blog-img">
+                        <img src="https://source.unsplash.com/800x600/?travel,money" alt="Finanças em Viagem">
+                    </div>
+                    <div class="blog-info">
+                        <h3>10 Dicas Para Economizar em Qualquer Viagem Internacional</h3>
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> 10 Mai 2023</span>
+                            <span><i class="far fa-eye"></i> 3.4k leituras</span>
+                        </div>
+                        <p>Descubra estratégias práticas para economizar em hospedagem, alimentação e transporte em suas viagens.</p>
+                        <a href="#" class="btn btn-sm btn-outline">Ler mais</a>
+                    </div>
+                </div>
+                
+                <!-- Blog Card 2 -->
+                <div class="blog-card">
+                    <div class="blog-img">
+                        <img src="https://source.unsplash.com/800x600/?passport,visa" alt="Vistos e Documentos">
+                    </div>
+                    <div class="blog-info">
+                        <h3>Guia Completo de Vistos: O Que Você Precisa Saber</h3>
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> 3 Abr 2023</span>
+                            <span><i class="far fa-eye"></i> 5.2k leituras</span>
+                        </div>
+                        <p>Entenda os tipos de vistos, processos de solicitação e como economizar tempo e dinheiro nos trâmites.</p>
+                        <a href="#" class="btn btn-sm btn-outline">Ler mais</a>
+                    </div>
+                </div>
+                
+                <!-- Blog Card 3 -->
+                <div class="blog-card">
+                    <div class="blog-img">
+                        <img src="https://source.unsplash.com/800x600/?insurance,travel" alt="Seguro Viagem">
+                    </div>
+                    <div class="blog-info">
+                        <h3>Seguro Viagem: Como Escolher a Melhor Opção Para Seu Perfil</h3>
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> 22 Mar 2023</span>
+                            <span><i class="far fa-eye"></i> 4.7k leituras</span>
+                        </div>
+                        <p>Aprenda a identificar as coberturas essenciais e como escolher o melhor seguro para suas necessidades.</p>
+                        <a href="#" class="btn btn-sm btn-outline">Ler mais</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center" style="margin-top: 30px; text-align: center;">
+                <a href="#" class="btn btn-outline">Ver Mais Artigos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Pronto Para Sua Próxima Aventura?</h2>
+                <p>Cadastre-se para receber dicas exclusivas, promoções especiais e ferramentas para planejar viagens incríveis economizando tempo e dinheiro.</p>
+                <a href="#" class="btn btn-secondary">Comece Agora</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Travel Gateway</h3>
+                    <p>Seu portal completo para viagens inteligentes, com economia e segurança em cada detalhe.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Links Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#destinations">Destinos</a></li>
+                        <li><a href="#features">Recursos</a></li>
+                        <li><a href="#finance">Finanças</a></li>
+                        <li><a href="#insurance">Seguros</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Sobre</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Quem Somos</a></li>
+                        <li><a href="#">Como Funciona</a></li>
+                        <li><a href="#">Parceiros</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Receba dicas de viagem e ofertas exclusivas</p>
+                    <form id="newsletter-form" class="newsletter-form">
+                        <input type="email" id="newsletter-email" placeholder="Seu e-mail" required>
+                        <button type="submit"><i class="fas fa-arrow-right"></i></button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Travel Gateway. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
