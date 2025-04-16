@@ -1,69 +1,6 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Meta tags -->
-    <title>Travel4Fun4U | Seu Portal de Viagens Premium</title>
-    <meta name="description" content="Descubra destinos extraordinários, planeje sua viagem perfeita e economize com as melhores ofertas. Guias exclusivos, ferramentas de IA e dicas de especialistas.">
-    <meta name="keywords" content="viagem, turismo, destinos internacionais, planejamento de viagem, economia em viagens, cartão para viagem, seguro viagem">
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="Travel4Fun4U | Seu Portal de Viagens Premium">
-    <meta property="og:description" content="Descubra destinos extraordinários, planeje sua viagem perfeita e economize com as melhores ofertas. Guias exclusivos, ferramentas de IA e dicas de especialistas.">
-    <meta property="og:image" content="https://seusite.com/imagens/og-travel4fun4u.jpg">
-    <meta property="og:url" content="https://seusite.com">
-    <meta property="og:type" content="website">
-    
-    <!-- Schema.org para Rich Snippets -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "TravelAgency",
-      "name": "Travel4Fun4U",
-      "url": "https://travel4fun4u.com",
-      "logo": "https://travel4fun4u.com/logo.png",
-      "description": "Descubra destinos extraordinários, planeje sua viagem perfeita e economize com as melhores ofertas.",
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "Brasil"
-      },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+55-11-5555-5555",
-        "contactType": "customer service"
-      }
-    }
-    </script>
-    
-    <!-- CSS e JS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-</head>
-<body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="header-top">
-                <a href="#" class="logo">
-                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Travel4Fun4U Logo" class="logo-image">
-                    <span class="logo-text">Travel<span class="fun-text">Fun</span><span class="for-you-text">4U</span></span>
-                </a>
-                <nav>
-                    <ul>
-                        <li><a href="#destinations">Destinos</a></li>
-                        <li><a href="#features">Recursos</a></li>
-                        <li><a href="#finance">Finanças</a></li>
-                        <li><a href="#insurance">Seguros</a></li>
-                        <li><a href="#blog">Blog</a></li>
-                        <li><a href="#" class="btn btn-outline">Entrar</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
+{% extends 'base.html' %}
+
+{% block content %}
 
     <!-- Hero Section -->
     <section class="hero">
@@ -618,7 +555,4 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-</body>
-</html>
+{% endblock %}
