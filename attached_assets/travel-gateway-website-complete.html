@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Gateway | Seu Portal de Viagens Premium</title>
+    <meta name="description" content="Descubra destinos extraordinários, planeje sua viagem perfeita e economize com as melhores ofertas. Guias exclusivos, ferramentas de IA e dicas de especialistas.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <style>
+        :root {
+            --primary: #2A6B96;
+            --primary-light: #3A8CC0;
+            --secondary: #E5A44C;
+            --dark: #1A1A2E;
+            --light: #F7F8FA;
+            --success: #28a745;
+            --danger: #dc3545;
+            --warning: #ffc107;
+            --info: #17a2b8;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 16px;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary);
+        }
+        
+        .btn-secondary:hover {
+            background-color: #D39440;
+        }
+        
+        .hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/api/placeholder/1600/800');
+            background-size: cover;
+            background-position: center;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            color: white;
+            position: relative;
+        }
+        
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        
+        .search-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 800px;
+            margin: -50px auto 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .search-form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .form-group {
+            flex: 1 1 200px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+        
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .search-btn {
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 12px 25px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s;
+            margin-top: 26px;
+        }
+        
+        .search-btn:hover {
+            background-color: #D39440;
+            transform: translateY(-2px);
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            font-size: 18px;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .destinations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .destination-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .destination-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .destination-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .destination-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .destination-card:hover .destination-img img {
+            transform: scale(1.1);
+        }
+        
+        .destination-info {
+            padding: 20px;
+        }
+        
+        .destination-info h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .destination-info p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        .destination-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+        }
+        
+        .price {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .rating {
+            color: var(--secondary);
+        }
+        
+        .features {
+            background-color: white;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            padding: 30px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-card i {
+            font-size: 48px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .feature-card p {
+            color: #666;
+        }
+        
+        .tools {
+            background-color: #f8f9fa;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .tool-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .tool-img {
+            height: 180px;
+            overflow: hidden;
+        }
+        
+        .tool-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .tool-info {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .tool-info h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .tool-info p {
+            color: #666;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        
+        .testimonials {
+            background-color: white;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+        
+        .author-info p {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .cta {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/api/placeholder/1600/600');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .cta h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .cta p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        
+        .blog {
+            background-color: #f8f9fa;
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        
+        .blog-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .blog-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .blog-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .blog-card:hover .blog-img img {
+            transform: scale(1.1);
+        }
+        
+        .blog-info {
+            padding: 20px;
+        }
+        
+        .blog-info h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .blog-meta {
+            display: flex;
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .blog-meta span {
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .blog-meta i {
+            margin-right: 5px;
+        }
+        
+        .blog-info p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+        
+        .footer-column p {
+            margin-bottom: 15px;
+            color: #ccc;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--secondary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-links a {
+            color: white;
+            background-color: rgba(255, 255, 255, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            text-align: center;
+            color: #ccc;
+            font-size: 14px;
+        }
+        
+        .newsletter-form {
+            margin-top: 15px;
+            display: flex;
+        }
+        
+        .newsletter-form input {
+            flex-grow: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+        }
+        
+        .newsletter-form button {
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .newsletter-form button:hover {
+            background-color: #D39440;
+        }
+        
+        .floating-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            z-index: 999;
+            transition: all 0.3s;
+        }
+        
+        .floating-btn:hover {
+            background-color: var(--secondary);
+            transform: translateY(-5px);
+        }
+        
+        .floating-btn i {
+            font-size: 24px;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .search-container {
+                margin-top: -30px;
+                padding: 15px;
+            }
+            
+            .form-group {
+                flex: 1 1 100%;
+            }
+            
+            .search-btn {
+                width: 100%;
+                margin-top: 10px;
+            }
+            
+            nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <a href="#" class="logo">
+                    <i class="fas fa-globe-americas"></i>
+                    Travel Gateway
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="#">Destinos</a></li>
+                        <li><a href="#">Guias</a></li>
+                        <li><a href="#">Ferramentas</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Loja</a></li>
+                        <li><a href="#" class="btn btn-outline">Minha Conta</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Descubra Experiências Extraordinárias</h1>
+                <p>Planeje viagens incríveis com nossos guias exclusivos e ferramentas inteligentes.</p>
+                <a href="#" class="btn btn-secondary">Explorar Destinos</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="search-container">
+            <form class="search-form">
+                <div class="form-group">
+                    <label for="destination">Destino</label>
+                    <input type="text" id="destination" placeholder="Para onde você quer ir?">
+                </div>
+                <div class="form-group">
+                    <label for="dates">Datas</label>
+                    <input type="text" id="dates" placeholder="Check-in — Check-out">
+                </div>
+                <div class="form-group">
+                    <label for="travelers">Viajantes</label>
+                    <select id="travelers">
+                        <option value="1">1 Viajante</option>
+                        <option value="2" selected>2 Viajantes</option>
+                        <option value="3">3 Viajantes</option>
+                        <option value="4">4 Viajantes</option>
+                        <option value="5+">5+ Viajantes</option>
+                    </select>
+                </div>
+                <button type="submit" class="search-btn">Buscar</button>
+            </form>
+        </div>
+    </div>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Destinos em Destaque</h2>
+                <p>Descubra lugares extraordinários selecionados por nossos especialistas em viagens para uma experiência inesquecível.</p>
+            </div>
+            <div class="destinations-grid">
+                <div class="destination-card">
+                    <div class="destination-img">
+                        <img src="/api/placeholder/400/320" alt="Bali, Indonésia">
+                    </div>
+                    <div class="destination-info">
+                        <h3>Bali, Indonésia</h3>
+                        <p>Explore as majestosas praias, templos ancestrais e cultura vibrante em um dos destinos mais procurados do mundo.</p>
+                        <div class="destination-meta">
+                            <span class="price">A partir de €599</span>
+                            <span class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </span>
+                        </div>
+                        <a href="#" class="btn btn-outline" style="width: 100%; margin-top: 15px;">Ver Detalhes</a>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <div class="destination-img">
+                        <img src="/api/placeholder/400/320" alt="Santorini, Grécia">
+                    </div>
+                    <div class="destination-info">
+                        <h3>Santorini, Grécia</h3>
+                        <p>Descubra as icônicas casas brancas, praias vulcânicas e os pores do sol mais espetaculares do Mediterrâneo.</p>
+                        <div class="destination-meta">
+                            <span class="price">A partir de €749</span>
+                            <span class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </span>
+                        </div>
+                        <a href="#" class="btn btn-outline" style="width: 100%; margin-top: 15px;">Ver Detalhes</a>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <div class="destination-img">
+                        <img src="/api/placeholder/400/320" alt="Tóquio, Japão">
+                    </div>
+                    <div class="destination-info">
+                        <h3>Tóquio, Japão</h3>
+                        <p>Mergulhe na fascinante mistura de tecnologia futurista e tradições seculares na metrópole mais vibrante da Ásia.</p>
+                        <div class="destination-meta">
+                            <span class="price">A partir de €899</span>
+                            <span class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </span>
+                        </div>
+                        <a href="#" class="btn btn-outline" style="width: 100%; margin-top: 15px;">Ver Detalhes</a>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <div class="destination-img">
+                        <img src="/api/placeholder/400/320" alt="Nova York, EUA">
+                    </div>
+                    <div class="destination-info">
+                        <h3>Nova York, EUA</h3>
+                        <p>Explore a Big Apple com suas icônicas atrações, centros culturais de classe mundial e gastronomia diversificada.</p>
+                        <div class="destination-meta">
+                            <span class="price">A partir de €799</span>
+                            <span class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </span>
+                        </div>
+                        <a href="#" class="btn btn-outline" style="width: 100%; margin-top: 15px;">Ver Detalhes</a>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="#" class="btn">Ver Todos os Destinos</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Por Que Escolher a Travel Gateway</h2>
+                <p>Oferecemos ferramentas exclusivas e conteúdo premium para garantir que sua viagem seja perfeita do início ao fim.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-robot"></i>
+                    <h3>Planejamento com IA</h3>
+                    <p>Nossa inteligência artificial personaliza roteiros completos com base nas suas preferências e orçamento.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-headphones-alt"></i>
+                    <h3>Guias em Áudio</h3>
+                    <p>Áudio-guias imersivos para explorar destinos com informações detalhadas e dicas exclusivas.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <h3>Melhores Preços</h3>
+                    <p>Comparamos ofertas de mais de 500 sites para garantir as tarifas mais competitivas do mercado.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h3>Mapas Interativos</h3>
+                    <p>Navegue por mapas detalhados com pontos de interesse, restaurantes e atrações recomendadas.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-credit-card"></i>
+                    <h3>Finanças para Viajantes</h3>
+                    <p>Comparamos cartões sem taxas internacionais e oferecemos calculadoras de câmbio em tempo real.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Seguros Completos</h3>
+                    <p>Encontre o seguro viagem ideal com coberturas personalizadas para suas necessidades específicas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section tools">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ferramentas Exclusivas</h2>
+                <p>Planeje sua viagem com nossas ferramentas inteligentes que tornam todo o processo simples e eficiente.</p>
+            </div>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-img">
+                        <img src="/api/placeholder/400/320" alt="Gerador de Itinerário">
+                    </div>
+                    <div class="tool-info">
+                        <h3>Gerador de Itinerário</h3>
+                        <p>Crie roteiros personalizados dia a dia com sugestões de atrações, restaurantes e atividades baseadas nas suas preferências.</p>
+                        <a href="#" class="btn" style="width: 100%;">Experimentar</a>
+                    </div>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-img">
+                        <img src="/api/placeholder/400/320" alt="Calculadora de Orçamento">
+                    </div>
+                    <div class="tool-info">
+                        <h3>Calculadora de Orçamento</h3>
+                        <p>Planeje seus gastos detalhadamente com estimativas precisas de hospedagem, alimentação, atrações e transporte.</p>
+                        <a href="#" class="btn" style="width: 100%;">Experimentar</a>
+                    </div>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-img">
+                        <img src="/api/placeholder/400/320" alt="Comparador de Seguros">
+                    </div>
+                    <div class="tool-info">
+					<h3>Comparador de Seguros</h3>
+                        <p>Compare diferentes opções de seguros de viagem para encontrar a cobertura ideal pelo melhor preço disponível.</p>
+                        <a href="#" class="btn" style="width: 100%;">Experimentar</a>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="#" class="btn">Ver Todas as Ferramentas</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>O Que Nossos Viajantes Dizem</h2>
+                <p>Descubra como nossa plataforma tem ajudado milhares de viajantes a criar experiências inesquecíveis.</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Usei o gerador de itinerário para planejar minha viagem a Tóquio e foi perfeito! As recomendações de restaurantes foram excelentes e economizei muito tempo com o planejamento."
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="/api/placeholder/100/100" alt="Ana Silva">
+                        <div class="author-info">
+                            <h4>Ana Silva</h4>
+                            <p>Viagem para Tóquio, Japão</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "As ferramentas financeiras me ajudaram a economizar quase €300 em taxas de câmbio durante minha viagem de 3 semanas pela Europa. O comparador de cartões é incrível!"
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="/api/placeholder/100/100" alt="Pedro Santos">
+                        <div class="author-info">
+                            <h4>Pedro Santos</h4>
+                            <p>Mochileiro pela Europa</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Os guias em áudio transformaram nossa experiência em Bali. Descobrimos lugares fantásticos que não estavam nos roteiros tradicionais e economizamos com as dicas locais."
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="/api/placeholder/100/100" alt="Carla Oliveira">
+                        <div class="author-info">
+                            <h4>Carla Oliveira</h4>
+                            <p>Viagem em família para Bali</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Planeje Sua Próxima Aventura</h2>
+                <p>Inscreva-se para receber dicas exclusivas, ofertas especiais e nossos guias premium gratuitamente.</p>
+                <div class="newsletter-form" style="max-width: 500px; margin: 0 auto;">
+                    <input type="email" placeholder="Seu melhor e-mail">
+                    <button type="submit">Inscrever-se</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section blog">
+        <div class="container">
+            <div class="section-title">
+                <h2>Dicas & Inspirações</h2>
+                <p>Conteúdo exclusivo para inspirar sua próxima viagem e ajudar no planejamento perfeito.</p>
+            </div>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <div class="blog-img">
+                        <img src="/api/placeholder/400/320" alt="10 Destinos Sustentáveis">
+                    </div>
+                    <div class="blog-info">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> 12 Abr 2025</span>
+                            <span><i class="far fa-user"></i> Marina Costa</span>
+                        </div>
+                        <h3>10 Destinos Sustentáveis para Viajantes Conscientes</h3>
+                        <p>Descubra lugares incríveis que estão liderando iniciativas de turismo sustentável e oferecem experiências autênticas.</p>
+                        <a href="#" class="btn btn-outline">Ler Mais</a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-img">
+                        <img src="/api/placeholder/400/320" alt="Tecnologia para Viajantes">
+                    </div>
+                    <div class="blog-info">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> 8 Abr 2025</span>
+                            <span><i class="far fa-user"></i> Lucas Mendes</span>
+                        </div>
+                        <h3>7 Ferramentas de IA que Todo Viajante Precisa Conhecer</h3>
+                        <p>Como a inteligência artificial está revolucionando o planejamento de viagens e melhorando a experiência dos viajantes.</p>
+                        <a href="#" class="btn btn-outline">Ler Mais</a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-img">
+                        <img src="/api/placeholder/400/320" alt="Finanças em Viagens">
+                    </div>
+                    <div class="blog-info">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> 3 Abr 2025</span>
+                            <span><i class="far fa-user"></i> Rafael Souza</span>
+                        </div>
+                        <h3>Guia Completo: Finanças Inteligentes para Nômades Digitais</h3>
+                        <p>Estratégias para gerenciar dinheiro internacionalmente, melhores cartões e dicas para economizar durante longas viagens.</p>
+                        <a href="#" class="btn btn-outline">Ler Mais</a>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="#" class="btn">Ver Todos os Artigos</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Sobre Travel Gateway</h3>
+                    <p>Plataforma premium dedicada a viajantes independentes que buscam experiências autênticas e memoráveis com ferramentas inteligentes de planejamento.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Destinos Populares</h3>
+                    <ul>
+                        <li><a href="#">Bali, Indonésia</a></li>
+                        <li><a href="#">Santorini, Grécia</a></li>
+                        <li><a href="#">Tóquio, Japão</a></li>
+                        <li><a href="#">Nova York, EUA</a></li>
+                        <li><a href="#">Costa Rica</a></li>
+                        <li><a href="#">Marrocos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Ferramentas & Recursos</h3>
+                    <ul>
+                        <li><a href="#">Gerador de Itinerário</a></li>
+                        <li><a href="#">Calculadora de Orçamento</a></li>
+                        <li><a href="#">Comparador de Seguros</a></li>
+                        <li><a href="#">Mapas Interativos</a></li>
+                        <li><a href="#">Guias em Áudio</a></li>
+                        <li><a href="#">Ferramentas Financeiras</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Receba dicas exclusivas, ofertas especiais e guias premium diretamente no seu e-mail.</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Seu e-mail">
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Travel Gateway. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="floating-btn">
+        <i class="fas fa-comment"></i>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            // Placeholder para funcionalidades JavaScript futuras
+            
+            // Exemplo: Animação suave para links de ancoragem
+            $('a[href^="#"]').on('click', function(e) {
+                e.preventDefault();
+                
+                var target = this.hash;
+                var $target = $(target);
+                
+                $('html, body').stop().animate({
+                    'scrollTop': $target.offset().top
+                }, 900, 'swing', function() {
+                    window.location.hash = target;
+                });
+            });
+            
+            // Simulação de funcionalidade de busca
+            $('.search-form').on('submit', function(e) {
+                e.preventDefault();
+                alert('Funcionalidade de busca será implementada em breve!');
+            });
+            
+            // Chat flutuante
+            $('.floating-btn').on('click', function() {
+                alert('Assistente de viagem disponível em breve!');
+            });
+        });
+    </script>
+</body>
+</html>

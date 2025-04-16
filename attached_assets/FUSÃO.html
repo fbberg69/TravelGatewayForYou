@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Meta tags de SEO -->
+    <title>Finanças para Viajantes | Economize em Taxas e Câmbio | Travel Gateway</title>
+    <meta name="description" content="Descubra os melhores cartões, seguros e ferramentas financeiras para economizar até €500 em taxas na sua próxima viagem internacional.">
+    <meta name="keywords" content="cartão para viagem, cartão sem taxa internacional, seguro viagem, câmbio para viajantes, wise, revolut, safetywing">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Finanças para Viajantes | Economize em Taxas e Câmbio">
+    <meta property="og:description" content="Descubra os melhores cartões, seguros e ferramentas financeiras para economizar até €500 em taxas na sua próxima viagem internacional.">
+    <meta property="og:image" content="https://seusite.com/imagens/og-fintech-viajantes.jpg">
+    <meta property="og:url" content="https://seusite.com/financas-para-viajantes">
+    <meta property="og:type" content="website">
+    
+    <!-- Schema.org para Rich Snippets -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Finanças para Viajantes: Economize em Taxas e Câmbio",
+      "description": "Guia completo para economizar com cartões sem taxas, seguros e ferramentas financeiras para viajantes.",
+      "image": "https://seusite.com/imagens/og-fintech-viajantes.jpg",
+      "author": {
+        "@type": "Person",
+        "name": "Travel Gateway"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Travel Gateway",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://seusite.com/logo.png"
+        }
+      },
+      "datePublished": "2025-04-01",
+      "dateModified": "2025-04-15"
+    }
+    </script>
+    
+    <!-- CSS -->
+    <style>
+        :root {
+            --primary: #0066cc;
+            --secondary: #ff6600;
+            --success: #28a745;
+            --dark: #343a40;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .section-title h2 {
+            font-size: 32px;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            font-size: 18px;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #0052a3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary);
+        }
+        
+        .btn-secondary:hover {
+            background-color: #e65c00;
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        /* Hero Section */
+        .finance-hero {
+            background: linear-gradient(135deg, #0066cc 0%, #00aaff 100%);
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+        }
+        
+        .hero-content h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+        
+        .hero-content p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .hero-cta {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        /* Calculadora */
+        .calculator-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-top: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .calculator-form {
+            flex: 1 1 300px;
+        }
+        
+        .calculator-results {
+            flex: 1 1 300px;
+            display: none;
+        }
+        
+        @media (min-width: 768px) {
+            .calculator-results {
+                margin-left: 20px;
+            }
+        }
+        
+        .result-card {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .result-card.highlight {
+            background-color: #E5F6FF;
+            border: 2px solid var(--primary);
+        }
+        
+        .result-card h3 {
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+        
+        .cost {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        
+        .savings {
+            color: var(--success);
+            font-weight: bold;
+            font-size: 18px;
+            margin: 15px 0;
+        }
+        
+        /* Tabela Comparativa */
+        .comparison-table-container {
+            overflow-x: auto;
+            margin-top: 30px;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            background-color: white;
+        }
+        
+        .comparison-table th,
+        .comparison-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .comparison-table th {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .comparison-table tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .card-name {
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+        }
+        
+        .card-name img {
+            margin-right: 10px;
+            border-radius: 4px;
+        }
+        
+        .btn-sm {
+            padding: 8px 12px;
+            font-size: 14px;
+        }
+        
+        /* Lead Magnet Box */
+        .lead-box {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-wrap: wrap;
+            overflow: hidden;
+        }
+        
+        .lead-content {
+            flex: 1 1 350px;
+            padding: 40px;
+            background-color: #f8f9fa;
+        }
+        
+        .lead-content h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+        
+        .lead-features {
+            list-style: none;
+            margin-top: 20px;
+        }
+        
+        .lead-features li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .lead-features i {
+            color: var(--primary);
+            margin-right: 10px;
+        }
+        
+        .lead-form {
+            flex: 1 1 350px;
+            padding: 40px;
+            background-color: white;
+        }
+        
+        .lead-form h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .privacy-note {
+            font-size: 12px;
+            text-align: center;
+            margin-top: 10px;
+            color: #999;
+        }
+        
+        /* Insurance Section */
+        .insurance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .insurance-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .insurance-badge {
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background-color: var(--secondary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .insurance-card img {
+            height: 60px;
+            object-fit: contain;
+            margin: 0 auto 20px;
+        }
+        
+        .insurance-card h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .price {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .insurance-features {
+            list-style: none;
+            margin: 20px 0;
+            text-align: left;
+        }
+        
+        .insurance-features li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .insurance-features i {
+            color: var(--success);
+            margin-right: 10px;
+        }
+        
+        .insurance-card .btn {
+            margin-top: auto;
+        }
+    </style>
+    
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="finance-hero section">
+        <div class="container">
+            <div class="hero-content">
+                <h1>As Melhores Soluções Financeiras para Viajantes</h1>
+                <p>Economize até €500 em taxas na sua próxima viagem internacional com nossas ferramentas exclusivas e comparadores.</p>
+                <div class="hero-cta">
+                    <a href="#calculator" class="btn btn-secondary">Calcular Minha Economia</a>
+                    <a href="#comparison" class="btn btn-outline">Comparar Cartões</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Calculadora -->
+    <section id="calculator" class="section calculator-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Calculadora de Economia em Taxas</h2>
+                <p>Veja quanto pode economizar em sua próxima viagem com os cartões certos</p>
+            </div>
+            <div class="calculator-container">
+                <div class="calculator-form">
+                    <div class="form-group">
+                        <label for="travel-budget">Orçamento total da viagem (€)</label>
+                        <input type="number" id="travel-budget" min="500" value="3000">
+                    </div>
+                    <div class="form-group">
+                        <label for="days">Dias de viagem</label>
+                        <input type="number" id="days" min="1" value="14">
+                    </div>
+                    <div class="form-group">
+                        <label for="destinations">Região principal</label>
+                        <select id="destinations">
+                            <option value="europe">Europa</option>
+                            <option value="america">América do Norte/Sul</option>
+                            <option value="asia">Ásia</option>
+                            <option value="oceania">Oceania</option>
+                            <option value="africa">África</option>
+                        </select>
+                    </div>
+                    <button id="calculate-btn" class="btn">Calcular Economia</button>
+                </div>
+                <div class="calculator-results">
+                    <div class="result-card">
+                        <h3>Com cartão de banco tradicional</h3>
+                        <p class="cost">Taxa média: <span id="trad-fee">7.5%</span></p>
+                        <p class="cost">Você gastaria: <span id="trad-total">€3225</span></p>
+                    </div>
+                    <div class="result-card highlight">
+                        <h3>Com Wise ou Revolut</h3>
+                        <p class="cost">Taxa média: <span id="wise-fee">0.5-1%</span></p>
+                        <p class="cost">Você gastaria: <span id="wise-total">€3030</span></p>
+                        <p class="savings">Economia estimada: <span id="savings">€195</span></p>
+                        <a href="https://wise.com/?referral=SEUCODIGO" class="btn btn-secondary" target="_blank">Abrir Conta Wise (Gratuito)</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Comparador de Cartões -->
+    <section id="comparison" class="section comparison-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Comparativo de Cartões para Viajantes</h2>
+                <p>Descubra a solução financeira ideal para suas necessidades específicas</p>
+            </div>
+            <div class="comparison-table-container">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Cartão</th>
+                            <th>Taxa de Câmbio</th>
+                            <th>Taxa de Saque</th>
+                            <th>Mensalidade</th>
+                            <th>Ideal para</th>
+                            <th>Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="card-name">
+                                <img src="/api/placeholder/100/60" alt="Wise">
+                                <span>Wise</span>
+                            </td>
+                            <td>Taxa real + 0.4%</td>
+                            <td>Gratuito até €200/mês</td>
+                            <td>Gratuito</td>
+                            <td>Viajantes frequentes, multicâmbio</td>
+                            <td><a href="https://wise.com/?referral=SEUCODIGO" class="btn btn-sm" target="_blank">Solicitar</a></td>
+                        </tr>
+                        <tr>
+                            <td class="card-name">
+                                <img src="/api/placeholder/100/60" alt="Revolut">
+                                <span>Revolut</span>
+                            </td>
+                            <td>Taxa real (até €1000/mês)</td>
+                            <td>Gratuito até €200/mês</td>
+                            <td>Gratuito (básico)</td>
+                            <td>Viajantes ocasionais, Europa</td>
+                            <td><a href="https://revolut.com/referral/SEUCODIGO" class="btn btn-sm" target="_blank">Solicitar</a></td>
+                        </tr>
+                        <tr>
+                            <td class="card-name">
+                                <img src="/api/placeholder/100/60" alt="N26">
+                                <span>N26</span>
+                            </td>
+                            <td>Taxa real + 1.7%</td>
+                            <td>€2 por saque</td>
+                            <td>Gratuito (básico)</td>
+                            <td>Residentes europeus</td>
+                            <td><a href="https://n26.com/r/SEUCODIGO" class="btn btn-sm" target="_blank">Solicitar</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Seção de Seguros de Viagem -->
+    <section class="section insurance-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Seguros de Viagem Recomendados</h2>
+                <p>Proteção completa pelos melhores preços</p>
+            </div>
+            <div class="insurance-grid">
+                <div class="insurance-card">
+                    <div class="insurance-badge">Mais Popular</div>
+                    <img src="/api/placeholder/200/100" alt="SafetyWing">
+                    <h3>SafetyWing</h3>
+                    <p class="price">A partir de €12/semana</p>
+                    <ul class="insurance-features">
+                        <li><i class="fas fa-check"></i> Cobertura médica até $250.000</li>
+                        <li><i class="fas fa-check"></i> Ideal para nômades digitais</li>
+                        <li><i class="fas fa-check"></i> Subscrição mensal flexível</li>
+                    </ul>
+                    <a href="https://safetywing.com/a/SEUCODIGO" class="btn" target="_blank">Ver Planos</a>
+                </div>
+                <!-- Adicione mais cartões de seguro aqui -->
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sistema de Captura de Leads -->
+    <section class="section lead-magnet">
+        <div class="container">
+            <div class="lead-box">
+                <div class="lead-content">
+                    <h2>Guia Completo: Economize €500 em Taxas na Sua Próxima Viagem</h2>
+                    <ul class="lead-features">
+                        <li><i class="fas fa-check-circle"></i> 5 cartões sem taxas internacionais</li>
+                        <li><i class="fas fa-check-circle"></i> Estratégias para evitar conversões abusivas (DCC)</li>
+                        <li><i class="fas fa-check-circle"></i> Templates de contestação para taxas indevidas</li>
+                        <li><i class="fas fa-check-circle"></i> Comparativo exclusivo de seguros viagem</li>
+                    </ul>
+                </div>
+                <div class="lead-form">
+                    <h3>Receba o Guia GRATUITAMENTE</h3>
+                    <form id="lead-form" action="https://seuservico.activehosted.com/proc.php" method="post">
+                        <input type="hidden" name="u" value="XX">
+                        <input type="hidden" name="f" value="XX">
+                        <input type="hidden" name="s" value="">
+                        <input type="hidden" name="c" value="0">
+                        <input type="hidden" name="m" value="0">
+                        <input type="hidden" name="act" value="sub">
+                        <input type="hidden" name="v" value="2">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Seu nome" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Seu melhor email" required>
+                        </div>
+                        <button type="submit" class="btn btn-secondary">Quero Economizar em Taxas</button>
+                    </form>
+                    <p class="privacy-note">Seus dados estão seguros e não serão compartilhados.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Scripts -->
+    <script>
+        // Funcionalidade da Calculadora
+        document.addEventListener('DOMContentLoaded', function() {
+            const calculateBtn = document.getElementById('calculate-btn');
+            if (calculateBtn) {
+                calculateBtn.addEventListener('click', function() {
+                    // Obtém valores do formulário
+                    const budget = parseFloat(document.getElementById('travel-budget').value);
+                    const days = parseInt(document.getElementById('days').value);
+                    const destination = document.getElementById('destinations').value;
+                    
+                    // Calcula taxas estimadas (simplificado para demonstração)
+                    const tradFee = 0.075; // 7.5% taxa média de bancos tradicionais
+                    const wiseFee = 0.01; // 1% taxa Wise/Revolut
+                    
+                    // Calcula valores
+                    const tradTotal = budget * (1 + tradFee);
+                    const wiseTotal = budget * (1 + wiseFee);
+                    const savings = tradTotal - wiseTotal;
+                    
+                    // Atualiza resultados
+                    document.getElementById('trad-total').textContent = '€' + tradTotal.toFixed(2);
+                    document.getElementById('wise-total').textContent = '€' + wiseTotal.toFixed(2);
+                    document.getElementById('savings').textContent = '€' + savings.toFixed(2);
+                    
+                    // Exibe resultados com animação
+                    document.querySelector('.calculator-results').style.display = 'flex';
+                });
+            }
+            
+            // Rastreamento de cliques em links de afiliados
+            document.querySelectorAll('a[href*="wise.com"], a[href*="revolut.com"], a[href*="safetywing.com"]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // Código de rastreamento (substitua pelo seu código real do Google Analytics ou similar)
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'affiliate_click', {
+                            'affiliate_name': this.hostname.replace('www.', '').split('.')[0],
+                            'link_url': this.href,
+                            'link_text': this.innerText
+                        });
+                    }
+                });
+            });
+            
+            // Rastreamento de envios de formulário
+            document.getElementById('lead-form').addEventListener('submit', function(e) {
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'lead_capture', {
+                        'form_id': 'finance_guide'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
